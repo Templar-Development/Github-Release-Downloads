@@ -23,14 +23,15 @@ def Repo_Total_Release_Downloads():
     url = "https://api.github.com/repos/{}/{}/releases".format(user, repo)
     response = requests.get(url)
     response = response.json()
-    
+
     total_Downloads = 0
-    
+
     for i in response:
-        total_Downloads += i['assets'][0]['download_count']
+        if isinstance(i['assets'][0], dict):
+            total_Downloads += i['assets'][0]['download_count']
 
     print(f'Requested: {user}/{repo} | Total Downloads: {total_Downloads}')
-        
+
     return str(total_Downloads)
 
 @app.route("/IRD", methods=['GET'])

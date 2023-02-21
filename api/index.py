@@ -11,7 +11,7 @@ CORS(app)
 
 @app.route('/', methods=["GET"])
 def home():
-    return "<h1>GIthub Downloads API.</h1>"
+    return "<h1>Github Downloads API.</h1>"
 
 
 @app.route("/TRD", methods=['GET'])

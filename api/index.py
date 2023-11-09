@@ -10,7 +10,7 @@ CORS(app)
 
 @app.route('/', methods=["GET"])
 def home():
-    page = "<h1>Github Release Stats</h1><p>End Points:</p><ul><li>TRD | Total release downloads</li><li>IRD | Individual release downloads</li><li>LDU | Latest download URL</li><li>ADU | All download URL's</li></ul><p>EX:</p><p>https://github-release-downloads.vercel.app/{type}?user={user}&repo={repo}</p>"
+    page = "<h1>Github Release Stats</h1>"
     return page
 
 @app.route("/TRD", methods=['GET'])

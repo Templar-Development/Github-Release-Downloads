@@ -8,11 +8,13 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route('/', methods=["GET"])
 def home():
-    return "<h1>Github Downloads API.</h1>"
-
+    # get and render the index.html page
+    
+    page = open("index.html", "r").read()
+     
+    return page
 
 @app.route("/TRD", methods=['GET'])
 def Repo_Total_Release_Downloads():

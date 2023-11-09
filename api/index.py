@@ -10,9 +10,7 @@ CORS(app)
 
 @app.route('/', methods=["GET"])
 def home():
-    # get and render the index.html page
-    
-    page = "<main><h1>Github Release Stats</h1><hr><section><input type=\"text\" id=\"name\" placeholder=\"Github username\"><input type=\"text\" id=\"repo\" placeholder=\"Github repository\"><button id=\"trd\">Get Downloads</button><button id=\"ird\">Get Individual Downloads</button><button id=\"ldu\">Get Latest Download URL</button><button id=\"adu\">Get All Download URL\'s</button><p id=\"type\"></p><p id=\"result\"></p></section></main><script>const trd = document.getElementById('trd');const ird = document.getElementById('ird');const ldu = document.getElementById('ldu');const repo = document.getElementById('repo');const name = document.getElementById('name');trd.addEventListener(\"click\", function() {get(\"TRD\");document.getElementById('type').innerHTML = \"Total Download Amount\";});ird.addEventListener(\"click\", function() {get(\"IRD\");document.getElementById('type').innerHTML = \"Individual Download Amounts\";});ldu.addEventListener(\"click\", function() {get(\"LDU\");document.getElementById('type').innerHTML = \"Latest Download URL\";});adu.addEventListener(\"click\", function() {get(\"ADU\");document.getElementById('type').innerHTML = \"All Download URL's\";});const get = (type) => {const url = `https://github-release-downloads.vercel.app/${type}?user=${name.value}&repo=${repo.value}`;fetch(url).then((res) => res.text()).then((data) => {document.getElementById('result').innerHTML = data;});}</script>"
+    page = "<h1>Github Release Stats</h1><p>End Points:</p><ul><li>TRD | Total release downloads</li><li>IRD | Individual release downloads</li><li>LDU | Latest download URL</li><li>ADU | All download URL's</li></ul><p>EX:</p><p>https://github-release-downloads.vercel.app/{type}?user={user}&repo={repo}</p>"
     return page
 
 @app.route("/TRD", methods=['GET'])
